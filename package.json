@@ -14,11 +14,14 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "semantic-ui": "^2.2.13",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "vuex": "^2.4.0"
   },
   "devDependencies": {
+    "style-loader": "^0.18.2",
+    "postcss-loader": "^2.0.6",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",

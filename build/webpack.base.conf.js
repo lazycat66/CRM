@@ -22,7 +22,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+      '@': resolve('src')
     }
   },
   module: {
@@ -47,9 +47,12 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: /\.css$/,
+        loader: 'vue-style-loader!css-loader'
+      },
+      {
         test: /\.less$/,
-        // 将样式抽取出来为独立的文件
-        loader: 'less-loader',
+        loader: 'vue-style-loader!css-loader!postcss-loader!less-loader',
         exclude: /node_modules/
       },
       {
@@ -57,7 +60,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('./src/assets/img/[name].[hash:7].[ext]')
         }
       },
       {

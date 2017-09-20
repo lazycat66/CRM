@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Test from '@/components/Test'
+import Home from '@/components/Home'
+import Login from '@/components/Login'
+import Platform from '@/components/Platform'
+import Account from '@/components/Account'
 
 Vue.use(Router)
 
@@ -10,19 +12,37 @@ const route = new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
+      name: 'home',
       meta: {
-        title: 'CRM'
+        title: 'welcome crm system'
       },
-      component: Hello
+      component: Home,
+      childen:[
+        {
+          path: '/login',
+          name: 'login',
+          meta: {
+            title: 'login system'
+          },
+          component: Login
+        }
+      ]
     },
     {
-      path: '/test',
-      name: 'Test',
+      path: '/platform',
+      name: 'platform',
       meta: {
-        title: '测试页面'
+        title: 'platforn'
       },
-      component: Test
+      component: Platform
+    },
+    {
+      path: '/account',
+      name: 'account',
+      meta: {
+        title: 'account information'
+      },
+      component: Account
     }
   ]
 });

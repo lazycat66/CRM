@@ -79,11 +79,11 @@ module.exports = {
     "no-native-reassign": 2,//不能重写native对象
     "no-negated-in-lhs": 2,//in 操作符的左边不能有!
     "no-nested-ternary": 0,//禁止使用嵌套的三目运算
-    "no-new": 1,//禁止在使用new构造一个实例后不赋值
-    "no-new-func": 1,//禁止使用new Function
-    "no-new-object": 2,//禁止使用new Object()
-    "no-new-require": 2,//禁止使用new require
-    "no-new-wrappers": 2,//禁止使用new创建包装实例，new String new Boolean new Number
+    "no-new": 0,//禁止在使用new构造一个实例后不赋值
+    "no-new-func": 0,//禁止使用new Function
+    "no-new-object": 0,//禁止使用new Object()
+    "no-new-require": 0,//禁止使用new require
+    "no-new-wrappers": 0,//禁止使用new创建包装实例，new String new Boolean new Number
     "no-obj-calls": 2,//不能调用内置的全局对象，比如Math() JSON()
     "no-octal": 2,//禁止使用八进制数字
     "no-octal-escape": 2,//禁止使用八进制转义序列
@@ -132,7 +132,7 @@ module.exports = {
     "block-scoped-var": 0,//块语句中使用var
     "brace-style": [1, "1tbs"],//大括号风格
     "callback-return": 1,//避免多次调用回调什么的
-    "camelcase": 2,//强制驼峰法命名
+    "camelcase": 0,//强制驼峰法命名
     "comma-dangle": [2, "never"],//对象字面量项尾不能有逗号
     "comma-spacing": 0,//逗号前后的空格
     "comma-style": [2, "last"],//逗号风格，换行时在行首还是行尾
