@@ -68,7 +68,7 @@ module.exports = {
     "no-label-var": 2,//label名不能与var声明的变量名相同
     "no-labels": 2,//禁止标签声明
     "no-lone-blocks": 2,//禁止不必要的嵌套块
-    "no-lonely-if": 2,//禁止else语句内只有if语句
+    "no-lonely-if": 0,//禁止else语句内只有if语句
     "no-loop-func": 1,//禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
     "no-mixed-requires": [0, false],//声明时不能混用声明类型
     "no-mixed-spaces-and-tabs": [0, false],//禁止混用tab和空格
@@ -131,7 +131,7 @@ module.exports = {
     "accessor-pairs": 0,//在对象中使用getter/setter
     "block-scoped-var": 0,//块语句中使用var
     "brace-style": [1, "1tbs"],//大括号风格
-    "callback-return": 1,//避免多次调用回调什么的
+    "callback-return": 0,//避免多次调用回调什么的
     "camelcase": 0,//强制驼峰法命名
     "comma-dangle": [2, "never"],//对象字面量项尾不能有逗号
     "comma-spacing": 0,//逗号前后的空格

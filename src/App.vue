@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import 'assets/less/base.less';
 export default {
   name: 'app'
 }
