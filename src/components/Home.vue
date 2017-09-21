@@ -7,29 +7,26 @@
     <button @click="signOut()" v-if="isLogin">sign out</button>
     </div>
   </header>
-  <route-view></route-view>
-  <!-- <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li @click="jump()">go test page</li>
-      <li>value={{username}}</li>
-    </ul>
-    <list :val="username"></list> -->
+  // <!-- <h1>{{ msg }}</h1>
+  //   <h2>Essential Links</h2>
+  //   <ul>
+  //     <li @click="jump()">go test page</li>
+  //     <li>value={{username}}</li>
+  //   </ul>
+    // <list :val="username"></list> -->
 </div>
 </template>
 
 <script>
 import img_logo from 'assets/img/logo.jpg';
-import List from '@/components/list/List.vue';
+// import List from '@/components/list/List.vue';
 import 'assets/less/home.less';
-import {
-  mapState
-} from 'vuex';
+import {mapState} from 'vuex';
 export default {
   name: 'Home',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      logo: img_logo
     }
   },
   computed: {
@@ -46,14 +43,11 @@ export default {
         hash: '#hash'
       })
     },
-        signOut(){
-            this.$router.push({
-                path: '/'
-            })
-        }
-  },
-  components: {
-    List
+      signOut(){
+          this.$router.push({
+              path: '/'
+          })
+      }
   }
 }
 </script>

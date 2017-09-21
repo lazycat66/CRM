@@ -17,6 +17,7 @@
 </div>
 </template>
 <script>
+import 'assets/less/home.less';
 export default {
   name: 'Home',
   data() {
@@ -25,17 +26,8 @@ export default {
     }
   },
   methods: {
-    jump() {
-      this.$router.push({
-        path: '/test',
-        name: 'Test',
-        params: {
-          id: '1111'
-        },
-        hash: '#hash'
-      })
-    },
     signUp() {
+      console.log(this.$store)
       this.$store.dispatch('LOGIN');
         this.$router.push({
             path: '/platform',

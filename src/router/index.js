@@ -7,20 +7,21 @@ import Account from '@/components/Account'
 
 Vue.use(Router)
 
-import Store from '@/store/Store'
+import store from '@/store/Store'
 const route = new Router({
   mode: 'history',
   routes: [
-      {
-          path: '*',
-          redirect: '/platform'
-      },
+      // {
+      //     path: '*',
+      //     redirect: '/'
+      // },
     {
       path: '/',
-      name: 'home',
-      redirect: '/Login',
+      name: 'index',
+      redirect: '/login',
       meta: {
-        title: 'welcome crm system'
+        title: 'welcome crm system',
+        auth: true
       },
       component: Home
     },
@@ -36,45 +37,16 @@ const route = new Router({
       path: '/platform',
       name: 'platform',
       meta: {
-        title: 'platforn'
-      },
-      beforeEach: (to, from, next) => {
-          console.log(Store.getters.authorizd);
-        if (Store.getters.authorizd)  {
-            next()
-        } else {
-            next({
-                path: '/login'
-            })
-        }
+        title: 'platforn',
+        auth: true
       },
       component: Platform
-    },
-    {
-      path: '/account',
-      name: 'account',
-      meta: {
-        title: 'account information'
-      },
-      component: Account
     }
   ]
 });
 
 // setting title
 route.beforeEach((to, from, next) => {
-    // if (Store.getters.authorizd) { // 已经登陆
-    //     if (to.path === '/'){
-    //         next({
-    //             path: '/platform'
-    //         })
-    //     } else {
-    //         next()
-    //     }
-    // } else {
-    //     // 未登录,跳转到登陆页面，并且带上 将要去的地址，方便登陆后跳转。
-    //     next({path:'/login'})
-    // }
   document.title = to.meta.title;
   next()
 });
