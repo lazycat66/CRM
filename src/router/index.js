@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Login from '@/components/Login'
 import Platform from '@/components/Platform'
 import Account from '@/components/Account'
+import consultation from '@/components/platform/index'
 
 Vue.use(Router)
 
@@ -11,10 +12,10 @@ import store from '@/store/Store'
 const route = new Router({
   mode: 'history',
   routes: [
-      // {
-      //     path: '*',
-      //     redirect: '/'
-      // },
+  {
+      path: '*',
+      redirect: '/login'
+  },
     {
       path: '/',
       name: 'index',
@@ -37,17 +38,24 @@ const route = new Router({
       path: '/platform',
       name: 'platform',
       meta: {
-        title: 'platforn',
+        title: 'platform',
         auth: true
       },
-      component: Platform
+      component: Platform,
+      children: [
+          {
+              path: '/platform',
+              name: 'consultation',
+              component: consultation
+          }
+      ]
     }
   ]
 });
 
 // setting title
 route.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
+  document.title = to.meta.title || 'CRM';
   next()
 });
 

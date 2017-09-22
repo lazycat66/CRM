@@ -1,32 +1,32 @@
 <template>
-<div>
-  <section>
-    <div class="ui grid">
-      <div class="ui secondary vertical pointing menu">
-        <a class="item">Home </a>
-        <a class="item">Messages </a>
-        <a class="item active">好友 </a>
+<div class="main-body" flex="dir:left">
+  <section class="ui vertical menu main-menu" flex-box="0">
+    <div class="item" v-for="menu in menuData">
+      <div class="header">{{menu.title}}</div>
+      <div class="menu">
+        <a class="item" v-for="children in menu.children" :class="{'active': children.tab == index}" @click="switchChannel(children)">{{children.tab}}</a>
       </div>
     </div>
+  </section>
+  <section class="main-content" flex-box="1">
+      <router-view></router-view>
   </section>
 </div>
 </template>
 <script>
+import 'assets/less/platform.less';
+import Menu from '@/options/menu';
 export default {
   name: 'Platform',
   data() {
     return {
-      msg: 'Welcome'
+        menuData: Menu.main,
+        index: ''
     }
   },
-  mounted() {
-    console.log(this.$route)
-  },
   methods: {
-    signOut() {
-      this.$router.push({
-        path: '/'
-      })
+    switchChannel(type) {
+        this.index = type.tab;
     }
   }
 }
