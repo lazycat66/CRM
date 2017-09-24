@@ -1,40 +1,64 @@
 <template>
 <div>
-    <section>
+    <section @keyup.enter="signUp">
       <div class="login-popup">
-        <h4 class="ui header">login</h4>
-        <div>
-          <label>Username</label>
-          <input type="text" name="username" placehoder="username" />
+        <h4 class="ui header">登录</h4>
+        <label>Username</label>
+        <div class="ui input">
+          <input type="text" name="username" placeholder="username" v-model="username" />
         </div>
-        <div>
-          <label>Password</label>
-          <input type="password" name="password" placehoder="password" />
+        <label>Password</label>
+        <div class="ui input">
+          <input type="password" name="password" placeholder="password" v-model="password" />
         </div>
-        <button class="ui primary button" @click="signUp()">sign up</button>
+        <div class="forgat">
+            <a>忘记密码</a>
+        </div>
+        <button class="ui primary button" @click="signUp">sign up</button>
       </div>
     </section>
 </div>
 </template>
 <script>
-import 'assets/less/home.less';
+import 'assets/less/login.less';
 export default {
   name: 'Home',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      username: '',
+      password: ''
     }
   },
   methods: {
     signUp() {
-      console.log(this.$store)
-      this.$store.dispatch('LOGIN');
-        this.$router.push({
-            path: '/platform',
-            params: {
-                userID: '111'
+        let _this = this;
+        if(!this.username){
+            console.log('u')
+            return false;
+        }
+        if(!this.password){
+            console.log('p')
+            return false;
+        }
+          this.$http.post('http://localhost:9999/api/login',{
+              username: this.username,
+              pwd: this.password
+          }).then(json => {
+            return json.body
+          }).then(res => {
+            if(res.code == 200){
+              _this.$store.dispatch('LOGIN');
+                _this.$router.push({
+                    path: '/platform',
+                    params: {
+                        userID: '111'
+                    }
+                })
+            } else {
+                // TODO toast
             }
-        })
+          })
     }
   }
 }

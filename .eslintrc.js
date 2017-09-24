@@ -42,7 +42,7 @@ module.exports = {
     "no-dupe-keys": 2,//在创建对象字面量时不允许键重复 {a:1,a:1}
     "no-dupe-args": 2,//函数参数不能重复
     "no-duplicate-case": 2,//switch中的case标签不能重复
-    "no-else-return": 2,//如果if语句里面有return,后面不能跟else语句
+    "no-else-return": 0,//如果if语句里面有return,后面不能跟else语句
     "no-empty": 2,//块语句中的内容不能为空
     "no-empty-character-class": 2,//正则表达式中的[]内容不能为空
     "no-empty-label": 0,//禁止使用空label
@@ -113,16 +113,16 @@ module.exports = {
     "no-undef-init": 2,//变量初始化时不能直接给它赋值为undefined
     "no-undefined": 2,//不能使用undefined
     "no-unexpected-multiline": 2,//避免多行表达式
-    "no-underscore-dangle": 1,//标识符不能以_开头或结尾
+    "no-underscore-dangle": 0,//标识符不能以_开头或结尾
     "no-unneeded-ternary": 2,//禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
-    "no-unreachable": 2,//不能有无法执行的代码
+    "no-unreachable": 0,//不能有无法执行的代码
     "no-unused-expressions": 2,//禁止无用的表达式
     "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],//不能有声明后未被使用的变量或参数
     "no-use-before-define": 2,//未定义前不能使用
     "no-useless-call": 2,//禁止不必要的call和apply
     "no-void": 2,//禁用void操作符
     "no-var": 0,//禁用var，用let和const代替
-    "no-warning-comments": [1, { "terms": ["todo", "fixme", "xxx"], "location": "start" }],//不能有警告备注
+    "no-warning-comments": [0, { "terms": ["todo", "fixme", "xxx"], "location": "start" }],//不能有警告备注
     "no-with": 2,//禁用with
 
     "array-bracket-spacing": [2, "never"],//是否允许非空数组里面有多余的空格
@@ -146,11 +146,12 @@ module.exports = {
     "dot-location": 0,//对象访问符的位置，换行的时候在行首还是行尾
     "dot-notation": [0, { "allowKeywords": true }],//避免不必要的方括号
     "eol-last": 0,//文件以单一的换行符结束
-    "eqeqeq": 2,//必须使用全等
+    "eqeqeq": 0,//必须使用全等
     "func-names": 0,//函数表达式必须有名字
     "func-style": [0, "declaration"],//函数风格，规定只能使用函数声明/函数表达式
     "generator-star-spacing": 0,//生成器函数*的前后空格
     "guard-for-in": 0,//for in循环要用if语句过滤
+    "keyword-spacing": 0,
     "handle-callback-err": 0,//nodejs 处理错误
     "id-length": 0,//变量名长度
     "indent": [0, 4],//缩进风格

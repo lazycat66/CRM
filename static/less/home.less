@@ -7,7 +7,7 @@ header {
   background: #000;
 
   img.logo {
-    border-radius: 20px;
+    border-radius: 50%;
     vertical-align: middle;
   }
 
@@ -15,6 +15,26 @@ header {
     margin-left: 15px;
     color: #fff;
     font-size: 18px;
+  }
+
+  .channel-bar{
+      display: inline-block;
+      margin-left: 200px;
+      font-size: 18px;
+      color: #999;
+
+      span.btn{
+          margin-right:30px;
+          cursor: pointer;
+
+          &:hover{
+              color: #ccc;
+          }
+
+          &.active{
+              color: #fff;
+          }
+      }
   }
 
   .info-bar{
@@ -25,6 +45,7 @@ header {
     color: #fff;
 
     span{
+        cursor: pointer;
     }
 
     button{

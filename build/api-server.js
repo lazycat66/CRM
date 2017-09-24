@@ -1,6 +1,10 @@
 var express = require('express')
-var router = express.Router()
 var app = express()
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.use(urlencodedParser);
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
@@ -14,11 +18,8 @@ app.all('*', function(req, res, next) {
 
 // 模拟api请求
 var apiRoute = require('./api-route')
-app.use('/api', apiRoute)
-
+app.use(apiRoute)
 //配置服务端口
-var server = app.listen(9999, function () {
-var host = server.address().address;
- var port = server.address().port;
-    console.log('Example app listening at http://%s:%s', host, port);
+app.listen(9999, function () {
+    console.log('Example app listening at http://localhost:9999');
 })

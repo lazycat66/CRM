@@ -7,9 +7,10 @@ import store from './store/Store'
 
 Vue.use(vueResource);
 Vue.config.productionTip = false
-// Vue.http.interceptors.push((request, next) => {
-//     next();
-// });
+Vue.http.interceptors.push((request, next) => {
+    request.emulateJSON = true
+    next();
+});
 
 new Vue({
   el: '#app',

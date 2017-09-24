@@ -84,10 +84,6 @@ devMiddleware.waitUntilValid(() => {
 
 var server = app.listen(port)
 
-// 模拟api请求
-var apiRoute = require('./api-route')
-app.use('/api', apiRoute)
-
 module.exports = {
   ready: readyPromise,
   close: () => {

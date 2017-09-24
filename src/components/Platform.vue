@@ -27,6 +27,10 @@ export default {
   methods: {
     switchChannel(type) {
         this.index = type.tab;
+        this.$router.push({
+            path: '/' + type.belong
+        });
+        this.$store.dispatch('SWITCH_TABLE_TYPE', type)
     }
   }
 }
