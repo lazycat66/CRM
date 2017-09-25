@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import vueResource from 'vue-resource'
+import api from 'axios'
 
 Vue.use(Vuex)
 const store = {
@@ -23,11 +23,11 @@ const store = {
           commit('CHANGE_LOGIN_STATUS',false)
       },
       SWITCH_TABLE_TYPE: ({commit},item) => {
-        //   vueResource.$http.post('http://localhost:9999/api/' + item.belong,{type:item.name}).then((json) => {
-        //       return json.body
-        //   }).then((res) => {
-        //       commit('CHANGE_PLATFORM_SUBTITLE', item, res.data)
-        //   })
+          api.post('http://localhost:9999/api/' + item.belong,{type:item.name}).then((json) => {
+              return json.body
+          }).then((res) => {
+              commit('CHANGE_PLATFORM_SUBTITLE', item, res.data)
+          })
           commit('CHANGE_PLATFORM_SUBTITLE', item, {})
       },
       ADD_TABLE_DATA: () => {
