@@ -4,7 +4,7 @@
       <img class="logo" :src="logo" width="40" height="40" />
       <label>客户关系管理系统</label>
       <div class="channel-bar">
-          <span class="btn" :class="{'active': subtitle=='platform'}" @click="switchChannel('platform')">Platform</span>
+          <span class="btn" :class="{'active': (subtitle=='platform' || subtitle=='consultation')}" @click="switchChannel('platform')">Platform</span>
           <span class="btn" :class="{'active': subtitle=='im'}" @click="switchChannel('im')">IM</span>
       </div>
       <div class="info-bar">
@@ -17,36 +17,31 @@
 </template>
 
 <script>
-import 'assets/less/base.less';
-import 'assets/less/home.less';
-import img_logo from 'assets/img/logo.jpg';
+import 'assets/less/base.less'
+import 'assets/less/home.less'
+import img_logo from 'assets/img/logo.jpg'
 import {mapGetters,mapState} from 'vuex'
 export default {
   name: 'app',
   data() {
     return {
-      logo: img_logo,
-      subtitle: ''
+      logo: img_logo
     }
-  },
-  mounted(){
-      this.subtitle = this.$route.name
   },
   methods: {
       switchChannel(type){
           let path = '/' + type
-          this.subtitle = type
           this.$router.push({
               path: path
           })
       },
     signOut(){
-      this.$store.dispatch('LOGOUT');
+      this.$store.dispatch('logout');
         this.$router.push({
             path: '/'
         })
     }
   },
-  computed:mapState(['username','isLogin'])
+  computed:mapGetters(['username','isLogin','subtitle'])
 }
 </script>

@@ -4,7 +4,7 @@
     <div class="item" v-for="menu in menuData">
       <div class="header">{{menu.title}}</div>
       <div class="menu">
-        <a class="item" v-for="children in menu.children" :class="{'active': children.tab == index}" @click="switchChannel(children)">{{children.tab}}</a>
+        <a class="item" v-for="children in menu.children" :class="{'active': children.tab == tableData.title}" @click="switchChannel(children)">{{children.tab}}</a>
       </div>
     </div>
   </section>
@@ -16,6 +16,10 @@
 <script>
 import 'assets/less/platform.less';
 import Menu from '@/options/menu';
+import {
+  mapState,
+  mapGetters
+} from 'vuex';
 export default {
   name: 'Platform',
   data() {
@@ -30,8 +34,9 @@ export default {
         this.$router.push({
             path: '/' + type.belong
         });
-        this.$store.dispatch('SWITCH_TABLE_TYPE', type)
+        this.$store.dispatch('switchTable', type)
     }
-  }
+    },
+    computed: mapGetters(['tableData'])
 }
 </script>

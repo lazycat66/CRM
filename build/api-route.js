@@ -8,14 +8,17 @@ var router = express.Router()
 router.post('/api/message', function(req, res){
   if(req.body){
     var type = req.body.type
-    var data = [];
+    var data = {
+        code: 200,
+        data:[]
+    };
     switch(type){
       case 'received':
         if(requestData && requestData.message){
           for(var i = 0; i < requestData.message.length; i++){
             var list = requestData.message[i]
             if(list.to == 'ME'){
-              data.push(list)
+              data.data.push(list)
             }
           }
         }
@@ -31,28 +34,44 @@ router.post('/api/message', function(req, res){
   * [待办事项 待办]
   */
 router.post('/api/todo', function(req, res){
-    res.status(200).send(requestData.todo).end();
+    var resData = {
+        code: 200,
+        data: requestData.todo
+    };
+    res.status(200).send(resData).end();
 })
 
 /**
   * [记录]
   */
 router.post('/api/record', function(req, res){
-    res.status(200).send(requestData.record).end();
+    var resData = {
+        code: 200,
+        data: requestData.record
+    };
+    res.status(200).send(resData).end();
 })
 
 /**
   * [新闻 最新资讯]
   */
 router.post('/api/news', function(req, res){
-    res.status(200).send(requestData.news).end();
+    var resData = {
+        code: 200,
+        data: requestData.news
+    };
+    res.status(200).send(resData).end();
 })
 
 /**
   * [企业动态]
   */
 router.post('/api/companyNews', function(req, res){
-    res.status(200).send(requestData.companyNews).end();
+    var resData = {
+        code: 200,
+        data: requestData.companyNews
+    };
+    res.status(200).send(resData).end();
 })
 
 // login
@@ -78,6 +97,25 @@ router.post('/api/login', function(req, res){
             }
             res.status(200).send(responseData)
         }
+    }
+})
+
+// table
+router.post('/api/guest', function(req, res){
+    if(req.body){
+        var obj = req.body
+        var responseData = {
+            data: {}
+        }
+        switch(obj.type){
+          case 'my':
+            responseData.code = 200
+            responseData.data = (requestData && requestData.table.guest)? requestData.table.guest[obj.type] : []
+          break;
+          case 'send':
+          break;
+        }
+        res.status(200).send(responseData).end();
     }
 })
 

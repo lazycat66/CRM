@@ -57,7 +57,7 @@ module.exports = {
     "no-fallthrough": 1,//禁止switch穿透
     "no-floating-decimal": 2,//禁止省略浮点数中的0 .5 3.
     "no-func-assign": 2,//禁止重复的函数声明
-    "no-implicit-coercion": 1,//禁止隐式转换
+    "no-implicit-coercion": 0,//禁止隐式转换
     "no-implied-eval": 2,//禁止使用隐式eval
     "no-inline-comments": 0,//禁止行内备注
     "no-inner-declarations": [2, "functions"],//禁止在块语句中使用声明（变量或函数）
@@ -100,7 +100,7 @@ module.exports = {
     "no-script-url": 0,//禁止使用javascript:void(0)
     "no-self-compare": 2,//不能比较自身
     "no-sequences": 0,//禁止使用逗号运算符
-    "no-shadow": 2,//外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
+    "no-shadow": 0,//外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
     "no-shadow-restricted-names": 2,//严格模式中规定的限制标识符不能作为声明时的变量名使用
     "no-spaced-func": 2,//函数调用时 函数名与()之间不能有空格
     "no-sparse-arrays": 2,//禁止稀疏数组， [1,,2]
@@ -141,8 +141,8 @@ module.exports = {
     "consistent-return": 0,//return 后面是否允许省略
     "consistent-this": [0, "that"],//this别名
     "constructor-super": 0,//非派生类不能调用super，派生类必须调用super
-    "curly": [2, "all"],//必须使用 if(){} 中的{}
-    "default-case": 2,//switch语句最后必须有default
+    "curly": [0, "all"],//必须使用 if(){} 中的{}
+    "default-case": 0,//switch语句最后必须有default
     "dot-location": 0,//对象访问符的位置，换行的时候在行首还是行尾
     "dot-notation": [0, { "allowKeywords": true }],//避免不必要的方括号
     "eol-last": 0,//文件以单一的换行符结束

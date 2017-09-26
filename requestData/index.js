@@ -1,3 +1,4 @@
+const tableData = require('../requestData/table')
 module.exports = {
     todo: [
         {
@@ -141,5 +142,6 @@ module.exports = {
             content: '我们以不断进阶的“安利式体验”服务消费者',
             time: '2017-09-08'
         }
-    ]
+    ],
+    table: tableData
 }

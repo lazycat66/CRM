@@ -17,7 +17,7 @@ export default {
   },
   methods:{
     change(){
-      this.$store.dispatch('CHANGE',{name: this.inputValue})
+      this.$store.dispatch('changeUsername',{name: this.inputValue})
     }
   }
 }
