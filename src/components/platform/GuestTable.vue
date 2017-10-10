@@ -60,7 +60,6 @@ import {
   mapGetters
 } from 'vuex';
 import 'assets/less/platform.less'
-import Calendar from '@/utils/Calendar'
 export default {
   name: 'Table',
   data() {
